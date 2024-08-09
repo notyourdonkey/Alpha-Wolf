@@ -1,0 +1,155 @@
+body {
+    background-color: #ffffff;
+    margin: 0;
+    font-family: 'VT323', monospace;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensure body covers the full viewport height */
+}
+
+.title, .footer {
+    text-align: center;
+    position: fixed; /* Fix the header and footer in place */
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: transparent; /* Make header and footer transparent */
+    z-index: 1; /* Ensure the title and footer are on top */
+}
+
+.title {
+    top: 10px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.title-left {
+    font-size: 30px;
+    margin: 5px 0;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.title-right {
+    font-size: 30px;
+    margin: 5px 0;
+    text-align: right; /* Align text to the right */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px; /* Ensure 10px padding from the right edge */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.footer-content {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    width: 100%;
+}
+
+.event-date {
+    font-size: 20px;
+    margin-right: 10px; /* Space from the right edge of the screen */
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin-top: 10px; 
+}
+
+.venue {
+    font-size: 20px;
+    margin-left: auto; /* Push the venue to the far left */
+    margin-top: 10px; 
+}
+
+.circles-container {
+    position: absolute;
+    top: 60px; /* Space from the title */
+    bottom: 60px; /* Space from the footer */
+    left: 0;
+    right: 0;
+    overflow: hidden; /* Hide overflow */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Space between circles */
+    padding: 10px; /* Add padding to ensure circles don’t touch edges */
+}
+
+.circle {
+    background-color: #000000; /* Default color for numbered circles */
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    z-index: 1; /* Ensure circles are on top of each other */
+}
+
+.circle.hover-color {
+    z-index: 1; /* Numbered circles below board game circles */
+}
+
+.circle.hover-enlarge {
+    z-index: 2; /* Board game circles on top */
+}
+
+.circle.hover-color:hover {
+    background-color: var(--hover-color); /* Change color on hover */
+}
+
+.circle.hover-enlarge:hover {
+    transform: scale(2); /* Enlarge on hover */
+}
+
+.circle::before {
+    content: attr(data-brand);
+    color: white;
+    font-size: 10px;
+    display: none; /* Hide text by default */
+}
+
+.circle.hover-enlarge:hover::before {
+    display: block; /* Show text on hover */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box; /* Ensure box-sizing is applied */
+}
+
+#original-content {
+    width: 100%;
+    height: 100%;
+}
+
+.special-image {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-size: cover; /* Cover the entire container */
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box; /* Ensure box-sizing is applied */
+}
